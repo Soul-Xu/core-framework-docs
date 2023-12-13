@@ -76,7 +76,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
             position: 'left',
-            label: '开发文档',
+            label: '教程',
           },
           {to: '/blog', label: 'API实例', position: 'left'},
           {
@@ -93,7 +93,7 @@ const config = {
             title: '开发文档',
             items: [
               {
-                label: 'Tutorial',
+                label: '教程',
                 to: '/docs/intro',
               },
             ],
@@ -129,7 +129,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} 基础开发框架, Inc. Built with Yunsu.`,
       },
       prism: {
         theme: prismThemes.github,

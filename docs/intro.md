@@ -2,46 +2,43 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# 快速开始
 
-Let's discover **Docusaurus in less than 5 minutes**.
+让我们开始 **基础开发框架文档**.
 
-## Getting Started
+### 系统环境要求
 
-Get started by **creating a new site**.
+在使用基础开发框架之前，先确保我们的电脑中已经具有相应的系统环境    
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+最基本的IDE，node环境等，这里推荐使用VS Code进行开发，由于我们的打包工具以及框架本身都需要node，因此需要按照要求安装相应的node
 
-### What you'll need
+### 我们所需要的
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- [Node.js](https://nodejs.org/en/download/) 版本 16.x 或者 18.x:
+  - 安装 Node.js 时，建议勾选所有与依赖相关的复选框.
 
-## Generate a new site
+## 开始我们的项目
 
-Generate a new Docusaurus site using the **classic template**.
+首先我们需要找到我们的项目代码所在 **[Github] (https://jihulab.com/yunsu/core-framework-docs)**
 
-The classic template will automatically be added to your project after you run the command:
+你需要做的是，在你电脑的终端命令行中输入下面的命令
 
 ```bash
-npm init docusaurus@latest my-website classic
+git clone git@jihulab.com:yunsu/core-framework-docs.git
 ```
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+## 开始项目
 
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
+运行下面的指令:
 
 ```bash
-cd my-website
+cd core-framework
+npm install --force / yarn
 npm run start
 ```
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+`cd` 命令用于更改当前工作目录。为了使用你新创建的 Docusaurus 站点，你需要在终端中导航到该目录.
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+`npm install --force` 或者 `yarn` 命令用于安装项目所需的依赖。为了使项目正常运行，需要安装一些依赖模块，比如基本库react，第三方库dayjs，antd等.
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+`npm run start` 命令构建了你的本地网站并通过一个开发服务器进行服务，你可以通过 http://localhost:3000/ 查看.
