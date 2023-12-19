@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 ---
 
 # 创建新的应用

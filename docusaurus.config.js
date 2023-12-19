@@ -78,7 +78,7 @@ const config = {
             position: 'left',
             label: '教程',
           },
-          {to: '/blog', label: 'API实例', position: 'left'},
+          {to: '/blog', label: 'API文档', position: 'left'},
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',

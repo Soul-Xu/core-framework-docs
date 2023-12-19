@@ -17,17 +17,17 @@ sidebar_position: 1
 - [Node.js](https://nodejs.org/en/download/) 版本 16.x 或者 18.x:
   - 安装 Node.js 时，建议勾选所有与依赖相关的复选框.
 
-## 开始我们的项目
+### 拉取项目代码
 
-首先我们需要找到我们的项目代码所在 **[Github] (https://jihulab.com/yunsu/core-framework-docs)**
+首先我们需要找到我们的项目代码所在 **[Github] (https://jihulab.com/yunsu/core-framework)**
 
 你需要做的是，在你电脑的终端命令行中输入下面的命令
 
 ```bash
-git clone git@jihulab.com:yunsu/core-framework-docs.git
+git clone git@jihulab.com:yunsu/core-framework.git
 ```
 
-## 开始项目
+### 开始项目
 
 运行下面的指令:
 

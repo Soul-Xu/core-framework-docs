@@ -22,6 +22,7 @@ const sidebars = {
     'technology',
     'structure',
     'router',
+    'http',
     'createPage',
     'components',
     'createApp',
