@@ -129,7 +129,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} 基础开发框架, Inc. Built with Yunsu.`,
+        copyright: `Copyright © ${new Date().getFullYear()} 深圳市云速易连科技有限公司, Inc. Built with Yunsu.`,
       },
       prism: {
         theme: prismThemes.github,
