@@ -20,12 +20,12 @@ sidebar_position: 1
 
 ### 拉取项目代码
 
-首先我们需要找到我们的项目代码所在 **[Github] (https://jihulab.com/yunsu/core-framework)**
+首先我们需要找到我们的项目代码所在 **[Github] (https://jihulab.com/yunsu/core-framework-frontend)**
 
 你需要做的是，在你电脑的终端命令行中输入下面的命令
 
 ```bash
-git clone git@jihulab.com:yunsu/core-framework.git
+git clone git@jihulab.com:yunsu/core-framework-frontend.git
 ```
 
 ### 开始项目
