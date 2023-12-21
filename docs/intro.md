@@ -42,3 +42,6 @@ npm run start
 `npm install --force` 或者 `yarn` 命令用于安装项目所需的依赖。为了使项目正常运行，需要安装一些依赖模块，比如基本库react，第三方库dayjs，antd等.
 
 `npm run start` 命令构建了你的本地网站并通过一个开发服务器进行服务，你可以通过 http://localhost:3000/ 查看.
+
+### 小结
+快速开始该项目，可以让您更加直观的了解具体情况。

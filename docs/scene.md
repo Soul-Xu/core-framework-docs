@@ -13,3 +13,6 @@ sidebar_position: 9
 
 新增弹窗
 ![新增事件](../public/images/event-add.png)
+
+### 小结
+目前提供的场景为比较常见的场景，未来还会有更多的场景提供展示。
