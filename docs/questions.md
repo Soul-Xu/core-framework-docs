@@ -24,3 +24,7 @@ sidebar_position: 10
 
 6. **在前端部分，看到是采用的`typescript`写法，如果是出现了`typescript`相关的报错如何解决呢？**    
    这个问题可以通过具体解决每个`typescript`的报错来解决，也可以对`tsconfig.json`的配置进行修改来解决，当然不得已的情况下可以用`@ts-ignore`暂时处理报错来保证项目可以正常启动。
+
+7. **在前端部分，终端报错TS2686: `'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.`**   
+   出现这种报错的原因主要是在页面代码中没有手动引入`React`，需要在代码头部添加一行`import React from 'react'`。   
+   造成这个问题的原因是在`tsconfig.js`文件中`jsx`属性的值为`react`，如果为`react-jsx`，则会自动默认代码为`react`的`jsx`模式。
