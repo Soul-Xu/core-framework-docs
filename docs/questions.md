@@ -25,6 +25,10 @@ sidebar_position: 10
 6. **在前端部分，看到是采用的`typescript`写法，如果是出现了`typescript`相关的报错如何解决呢？**    
    这个问题可以通过具体解决每个`typescript`的报错来解决，也可以对`tsconfig.json`的配置进行修改来解决，当然不得已的情况下可以用`@ts-ignore`暂时处理报错来保证项目可以正常启动。
 
-7. **在前端部分，终端报错TS2686: `'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.`**   
+7. **在前端部分，终端报错TS2686: `'React' refers to a UMD global, but the current file is a module. Consider adding an import instead.`？**   
    出现这种报错的原因主要是在页面代码中没有手动引入`React`，需要在代码头部添加一行`import React from 'react'`。   
    造成这个问题的原因是在`tsconfig.js`文件中`jsx`属性的值为`react`，如果为`react-jsx`，则会自动默认代码为`react`的`jsx`模式。
+
+8. **利用git提交代码，输入git commit相关命令的时候，为什么会触发npm install相关指令？**    
+  在进行git commit操作的时候，会触发commitlint的hooks，在.husky文件夹下的pre-commit文件中可以看到相关的指令。这些指令执行完会对前端部分的代码进行eslint和stylelint校验，以确保代码的整体规范。     
+  如果是想跳过这一步的话，可以先将这部分的指令注释掉，但在实际开发中不推荐。

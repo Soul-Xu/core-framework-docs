@@ -28,7 +28,7 @@ sidebar_position: 5
   }).then((res: any) => {
     // todo
   }).catch((err: any) => {
-
+    // todo
   })
 ```
 
