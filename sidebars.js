@@ -27,6 +27,7 @@ const sidebars = {
     'components',
     'createApp',
     'scene',
+    'microFrontend',
     'questions'
   ],
 };
