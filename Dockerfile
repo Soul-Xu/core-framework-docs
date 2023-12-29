@@ -7,6 +7,8 @@ RUN echo 'https://mirrors.huaweicloud.com/alpine/v3.16/main' > /etc/apk/reposito
     && apk update \
     && apk upgrade
 
+# 添加工具包
+RUN apk add net-tools curl busybox-extras
 RUN npm config set registry https://registry.npm.taobao.org
 
 # 复制 package.json 和 package-lock.json
