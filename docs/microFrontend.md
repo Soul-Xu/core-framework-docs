@@ -76,7 +76,7 @@
 
 - **IFrame**：使用IFrame作为沙箱，确保每个模块在独立的环境中执行。
 
-### 前端端通信
+### 前后端通信
 
 微前端模块之间的通信需要进行有效的管理。一些实现方案包括：
 
@@ -92,9 +92,169 @@
 
 2. **Webpack Module Federation**：Webpack的一个插件，允许不同代码库之间共享模块。
 
-3. **qiankun**：一个基于single-spa的微前端实现库，由阿里巴巴出品。
+3. **qiankun**：一个基于single-spa的微前端实现库，由阿里巴巴出品，蚂蚁金服推出的微前端框架，建立在single spa之上，提供更多功能和支持。
 
-4. **乾坤微前端**：蚂蚁金服推出的微前端框架，建立在qiankun之上，提供更多功能和支持。
+4. **web component**：基座为中心，子应用以web component的方式接入到基座当中。
+
+## 框架中的实现方案
+在该项目中以web component作为解决方案，选用[micro-app](https://micro-zoe.github.io/micro-app/)为框架进行实现。
+
+### 具体代码
+``` bash
+项目根目录
+npm install @micro-zoe/micro-app
+
+_app.jsx中
+import microApp from '@micro-zoe/micro-app'
+
+useEffect(() => {
+  // 初始化micro-app
+  microApp.start()
+}, [])
+
+具体需要加载子应用的位置
+import microApp from '@micro-zoe/micro-app'
+
+// 以vue2子项目为例
+<micro-app name='vue2-app' url='http://localhost:8080/' />
+
+```
+
+### 生命周期
+- created <micro-app />标签初始化后，加载资源前触发。   
+- beforemount 加载资源完成后，开始渲染之前触发。   
+- mounted 子应用渲染结束后触发。   
+- unmount 子应用卸载时触发。   
+- error 子应用渲染出错时触发，只有会导致渲染终止的错误才会触发此生命周期。   
+
+监听生命周期   
+1.React
+因为React不支持自定义事件，所以我们需要引入一个polyfill。
+在<micro-app/>标签所在的文件顶部添加polyfill，注释也要复制。
+``` bash
+/** @jsxRuntime classic */
+/** @jsx jsxCustomEvent */
+import jsxCustomEvent from '@micro-zoe/micro-app/polyfill/jsx-custom-event'
+```
+
+开始使用
+``` bash
+<micro-app
+  name='xx'
+  url='xx'
+  onCreated={() => console.log('micro-app元素被创建')}
+  onBeforemount={() => console.log('即将被渲染')}
+  onMounted={() => console.log('已经渲染完成')}
+  onUnmount={() => console.log('已经卸载')}
+  onError={() => console.log('渲染出错')}
+/>
+```
+
+2.Vue
+vue中监听方式和普通事件一致。
+``` bash
+<template>
+  <micro-app
+    name='xx'
+    url='xx'
+    @created='created'
+    @beforemount='beforemount'
+    @mounted='mounted'
+    @unmount='unmount'
+    @error='error'
+  />
+</template>
+
+<script>
+export default {
+  methods: {
+    created () {
+      console.log('micro-app元素被创建')
+    },
+    beforemount () {
+      console.log('即将被渲染')
+    },
+    mounted () {
+      console.log('已经渲染完成')
+    },
+    unmount () {
+      console.log('已经卸载')
+    },
+    error () {
+      console.log('渲染出错')
+    }
+  }
+}
+</script>
+```
+
+3.自定义
+我们可以手动监听生命周期事件。
+``` bash
+const myApp = document.querySelector('micro-app[name=my-app]')
+
+myApp.addEventListener('created', () => {
+  console.log('created')
+})
+
+myApp.addEventListener('beforemount', () => {
+  console.log('beforemount')
+})
+
+myApp.addEventListener('mounted', () => {
+  console.log('mounted')
+})
+
+myApp.addEventListener('unmount', () => {
+  console.log('unmount')
+})
+
+myApp.addEventListener('error', () => {
+  console.log('error')
+})
+```
+
+4.全局监听
+全局监听会在每个应用的生命周期执行时都会触发。
+``` bash
+import microApp from '@micro-zoe/micro-app'
+
+microApp.start({
+  lifeCycles: {
+    created (e) {
+      console.log('created')
+    },
+    beforemount (e) {
+      console.log('beforemount')
+    },
+    mounted (e) {
+      console.log('mounted')
+    },
+    unmount (e) {
+      console.log('unmount')
+    },
+    error (e) {
+      console.log('error')
+    }
+  }
+})
+```
+
+### 数据通信
+- 子应用获取来自主应用的数据   
+  1.直接获取数据    
+  2.绑定监听函数
+- 子应用向主应用发送数据
+- 主应用向子应用发送数据    
+  1.通过data属性发送数据   
+  2.手动发送数据
+- 主应用获取来自子应用的数据
+- 清空数据
+- 全局数据通信
+- 关闭沙箱后的通信方式
+
+### 其他特性
+其他特性包括JS沙箱，样式隔离，元素隔离，预加载，多层嵌套等。具体可以在[micro-app](https://micro-zoe.github.io/micro-app/)中进行详细查看。
 
 ## 参考资料
 
