@@ -120,6 +120,8 @@ import microApp from '@micro-zoe/micro-app'
 
 ```
 
+**子应用在webpack-dev-server的headers中设置跨域支持。**
+
 ### 生命周期
 - created <micro-app />标签初始化后，加载资源前触发。   
 - beforemount 加载资源完成后，开始渲染之前触发。   
